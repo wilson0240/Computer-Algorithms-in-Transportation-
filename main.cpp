@@ -2,12 +2,37 @@
 #include <stdio.h>
 #include <stdlib.h> /* 亂數相關函數 */
 #include <time.h> /* 時間相關函數 */
-#include <conio.h>
+#include <conio.h> //enter繼續
 using namespace std;
-
-void game(){
-    int sum;
-    srand( time(0));//設定亂數不固定
+void game(int);
+int main()
+{
+    cout<<" /////////// Si-Bar-Lar ///////////"<<endl;
+    cout<<" start";
+    getch();  //輸入enter
+    cout<<""<<endl;
+    cout<<" host "<<endl;
+    int sum,host,gambler;
+    srand(time(NULL));//設定亂數不固定
+    game(sum);
+    host = sum;
+    cout<<sum;
+    cout<<" a gambler"<<endl;
+    game(sum);
+    gambler = sum;
+    cout<<gambler;
+    int hostsum,gamblersum;
+    if(hostsum>gamblersum){
+         cout<<"host win"<<endl ;
+    }
+    else{
+         cout<<"gambler win"<<endl ;
+    }
+    return sum;
+}
+void game(int sum){
+    //int sum;
+    //srand( time(NULL));//設定亂數不固定
     do{
     //int sum=0; 兩個值?
     int dice1 = rand( ) %6+ 1; //隨機數除6的餘數+1
@@ -61,25 +86,6 @@ void game(){
     sum = dice1+dice2+dice3+dice4;  //四個一樣
     }
     cout<<sum<<endl ;
-    }while ( sum ==0);
-}
-int main()
-{
-    cout<<" /////////// Si-Bar-Lar ///////////"<<endl;
-    cout<<" start";
-    getch();
-    cout<<""<<endl;
-    cout<<" host "<<endl;
-    game();
-    int hostsum,gamblersum;
-    //cout<<sum<<endl ;
-    cout<<" a gambler"<<endl;
-    game();
-    if(hostsum>gamblersum){
-         cout<<"host win"<<endl ;
-    }
-    else{
-         cout<<"gambler win"<<endl ;
-    }
-    return 0;
+    }while (sum ==0);
+    return ;
 }
